@@ -17,8 +17,11 @@ public class RcpDBHper extends SQLiteOpenHelper {
                                         "_id  INTEGER PRIMARY KEY AUTOINCREMENT, " +
                                         "_name VARCHAR(50), " +
                                         "_category VARCHAR(50), " +
-                                        "_ingredient VARCHAR(50), " +
-                                        "_method VARCHAR(50));";
+                                        "_level INTEGER, " +
+                                        "_intro VARCHAR(255), " +
+                                        "_ingredient VARCHAR(255), " +
+                                        "_fact VARCHAR(100), " +
+                                        "_method VARCHAR(255));";
 
     public RcpDBHper(Context context, String DBname, CursorFactory factory, int DBversion){
         super(context, "MyRecipe.db", null, 1);
@@ -35,12 +38,15 @@ public class RcpDBHper extends SQLiteOpenHelper {
         onCreate(db);
     }
 
-    public long insertRcp(String name, String category, String ingredient, String method){
+    public long insertRcp(String name, String category, int level, String intro, String ingredient, String fact, String method) {
         SQLiteDatabase db = getWritableDatabase();
         ContentValues rcp = new ContentValues();
         rcp.put("_name", name);
         rcp.put("_category", category);
+        rcp.put("_level", level);
+        rcp.put("_intro", intro);
         rcp.put("_ingredient", ingredient);
+        rcp.put("_fact", fact);
         rcp.put("_method", method);
         long rowID = db.insert(TBname, null, rcp);
         db.close();
@@ -56,11 +62,17 @@ public class RcpDBHper extends SQLiteOpenHelper {
 
         rcp[0].put("_name", "dish1");
         rcp[0].put("_category", "Chinese Dish");
+        rcp[0].put("_level", 5);
+        rcp[0].put("_intro", "Yummy");
         rcp[0].put("_ingredient", "1.Vegetable\n2.Meat");
+        rcp[0].put("_fact", "1.fact\n2.fact");
         rcp[0].put("_method", "1.First step\n2.Second step");
         rcp[1].put("_name", "dish2");
         rcp[1].put("_category", "America Dish");
+        rcp[1].put("_level", 5);
+        rcp[1].put("_intro", "Yummy");
         rcp[1].put("_ingredient", "1.Vegetable\n2.Meat");
+        rcp[1].put("_fact", "1.fact\n2.fact");
         rcp[1].put("_method", "1.First step\n2.Second step");
 
         for(ContentValues c: rcp){
@@ -79,9 +91,12 @@ public class RcpDBHper extends SQLiteOpenHelper {
             int id = rcpSet.getInt(0);
             String name = rcpSet.getString(1);
             String category = rcpSet.getString(2);
-            String ingredient = rcpSet.getString(3);
-            String method = rcpSet.getString(4);
-            Recipe r = new Recipe(id, name, category, ingredient, method);
+            int level = rcpSet.getInt(3);
+            String intro = rcpSet.getString(4);
+            String ingredient = rcpSet.getString(5);
+            String fact = rcpSet.getString(6);
+            String method = rcpSet.getString(7);
+            Recipe r = new Recipe(id, name, category, level, intro, ingredient, fact, method);
             rcpList.add(r);
         }
 

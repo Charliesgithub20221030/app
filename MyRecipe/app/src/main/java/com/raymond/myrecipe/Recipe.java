@@ -5,15 +5,45 @@ public class Recipe {
     int id;
     String name;
     String category;
+    int level;
+    String intro;
     String ingredient;
+    String fact;
     String method;
 
-    public Recipe(int id, String name, String category, String ingredient, String method) {
+    public Recipe(int id, String name, String category, int level, String intro, String ingredient, String fact, String method) {
         this.id = id;
-        this.category = category;
         this.name = name;
+        this.category = category;
+        this.level = level;
+        this.intro = intro;
         this.ingredient = ingredient;
+        this.fact = fact;
         this.method = method;
+    }
+
+    public int getLevel() {
+        return level;
+    }
+
+    public void setLevel(int level) {
+        this.level = level;
+    }
+
+    public String getIntro() {
+        return intro;
+    }
+
+    public void setIntro(String intro) {
+        this.intro = intro;
+    }
+
+    public String getFact() {
+        return fact;
+    }
+
+    public void setFact(String fact) {
+        this.fact = fact;
     }
 
     public int getId() {

@@ -21,16 +21,11 @@ public class MainActivity extends AppCompatActivity implements RcpAdapter.ListIt
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        this.deleteDatabase(DBname);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
         initDB();
-
-//        Recipe food1 = new Recipe(1, "ctg1", "name1", "igd1", "mt1");
-//        Recipe food2 = new Recipe(2, "ctg2", "name2", "igd2", "mt2");
-//        rcpList = new ArrayList();
-//        rcpList.add(food1);
-//        rcpList.add(food2);
 
         mRcpList = (RecyclerView) findViewById(R.id.my_recycler_view);
         LinearLayoutManager layoutManager =new LinearLayoutManager(this);
@@ -71,10 +66,19 @@ public class MainActivity extends AppCompatActivity implements RcpAdapter.ListIt
         Toast mToast = Toast.makeText(this, toastMessage, Toast.LENGTH_LONG);
         mToast.show();
 
-//        Intent intent = new Intent();
-//        intent.setClass(MainActivity.this, DetailActivity);
-//
-//        Bundle bundle = new Bundle();
-//        bundle.putString("Name", );
+        Intent intent = new Intent();
+        intent.setClass(MainActivity.this, DetailActivity);
+
+        Bundle bundle = new Bundle();
+        Recipe temp = rcpList.get(clickedItemIndex);
+        bundle.putString("Name", temp.name);
+        bundle.putString("Category", temp.category);
+        bundle.putInt("Level", temp.level);
+        bundle.putString("Intro", temp.intro);
+        bundle.putString("Ingredient", temp.ingredient);
+        bundle.putString("Fact", temp.fact);
+        bundle.putString("Method", temp.method);
+        intent.putExtras(bundle);
+        startActivity(intent);
     }
 }
