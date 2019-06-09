@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+      xmlns:app="http://schemas.android.com/apk/res-auto"
+      xmlns:tools="http://schemas.android.com/tools"
+      tools:context=".MainActivity">
+
+    <item
+        android:id="@+id/action_refresh"
+        android:orderInCategory="1"
+        android:title="@string/action_reset"
+        android:icon="@drawable/ic_action_refresh"
+        app:showAsAction="always"/>
+
+    <item
+        android:id="@+id/action_add"
+        android:orderInCategory="2"
+        android:title="@string/action_add"
+        android:icon="@drawable/ic_action_add"
+        app:showAsAction="always"/>
+
+    <item
+        android:id="@+id/action_set"
+        android:orderInCategory="3"
+        android:title="@string/action_set"
+        android:icon="@drawable/ic_action_setting"
+        app:showAsAction="always"/>
+
+    <item
+        android:id="@+id/action_order"
+        android:orderInCategory="4"
+        android:title="@string/action_order"
+        android:icon="@drawable/ic_action_sort"
+        app:showAsAction="always">
+        <menu xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            xmlns:tools="http://schemas.android.com/tools"
+            tools:context=".MainActivity">
+
+            <item
+                android:id="@+id/sort_name"
+                android:orderInCategory="1"
+                android:title="@string/sort_name"
+                android:icon="@drawable/ic_action_sort_title"
+                app:showAsAction="always"/>
+
+            <item
+                android:id="@+id/sort_category"
+                android:orderInCategory="2"
+                android:title="@string/sort_category"
+                android:icon="@drawable/ic_action_sort_country"
+                app:showAsAction="always"/>
+
+            <item
+                android:id="@+id/sort_level"
+                android:orderInCategory="3"
+                android:title="@string/sort_level"
+                android:icon="@drawable/ic_action_sort_level"
+                app:showAsAction="always"/>
+        </menu>>
+    </item>>
+</menu>

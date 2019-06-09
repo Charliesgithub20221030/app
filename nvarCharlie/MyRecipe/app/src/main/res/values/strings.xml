@@ -1,0 +1,54 @@
+<resources>
+    <string name="app_name">Cool Cook</string>
+    <string name="action_reset">Reset</string>
+    <string name="action_add">Add</string>
+    <string name="action_set">Setting</string>
+    <string name="action_order">Order</string>
+    <string name="sort_name">Sort by Title</string>
+    <string name="sort_category">Sort by Country</string>
+    <string name="sort_level">Sort by Level</string>
+    <string name="title">My Recipe</string>
+    <string-array name="level_arr">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+    </string-array>
+    <string-array name="ctg_arr">
+        <item>Japanese Dish</item>
+        <item>French Dish</item>
+        <item>Korean Dish</item>
+        <item>Indonesian Dish</item>
+        <item>Chinese Dish</item>
+    </string-array>
+
+    <string-array name="timelist_hour">
+        <item>凌晨</item>
+        <item>上午1點</item>
+        <item>上午2點</item>
+        <item>上午3點</item>
+        <item>上午4點</item>
+        <item>上午5點</item>
+        <item>上午6點</item>
+        <item>上午7點</item>
+        <item>上午8點</item>
+        <item>上午9點</item>
+        <item>上午10點</item>
+        <item>上午11點</item>
+        <item>中午12點</item>
+        <item>下午13點</item>
+        <item>下午14點</item>
+        <item>下午15點</item>
+        <item>下午16點</item>
+        <item>下午17點</item>
+        <item>下午18點</item>
+        <item>下午19點</item>
+        <item>下午20點</item>
+        <item>下午21點</item>
+        <item>下午22點</item>
+        <item>下午23點</item>
+
+    </string-array>
+
+</resources>

@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".preferenceSettings">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:layout_editor_absoluteX="8dp"
+        tools:layout_editor_absoluteY="74dp">
+
+        <TextView
+            android:id="@+id/textView"
+            android:padding="5dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="音樂"
+            android:textSize="18sp" />
+
+        <Switch
+            android:id="@+id/swmu"
+            android:padding="5dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="背景音樂"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/textView2"
+            android:padding="5dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="每日通知"
+            android:textSize="18sp" />
+
+        <Switch
+            android:id="@+id/swnt"
+            android:padding="5dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="開啟/關閉每日通知"
+            android:textSize="18sp" />
+
+        <Spinner
+            android:id="@+id/timeList"
+            android:padding="5dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:entries="@array/timelist_hour" />
+
+    </LinearLayout>
+
+</android.support.constraint.ConstraintLayout>
