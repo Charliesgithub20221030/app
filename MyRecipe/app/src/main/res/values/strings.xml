@@ -1,3 +1,11 @@
 <resources>
-    <string name="app_name">My Recipe</string>
+    <string name="app_name">Cool Cook</string>
+    <string name="action_reset">Reset</string>
+    <string name="action_add">Add</string>
+    <string name="action_set">Setting</string>
+    <string name="action_order">Order</string>
+    <string name="sort_name">Sort by Title</string>
+    <string name="sort_category">Sort by Country</string>
+    <string name="sort_level">Sort by Level</string>
+    <string name="title">My Recipe</string>
 </resources>

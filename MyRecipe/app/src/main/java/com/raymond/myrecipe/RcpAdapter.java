@@ -5,6 +5,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -21,13 +22,17 @@ public class RcpAdapter extends RecyclerView.Adapter<RcpAdapter.RcpViewHolder> {
 
     public class RcpViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         // each data item is just a string in this case
-        public TextView ctgTextView;
+        public ImageView ctImageView;
+//        public TextView ctgTextView;
         public TextView nameTextView;
+        public ImageView lvImageView;
 
         public RcpViewHolder(View v) {
             super(v);
+            ctImageView = v.findViewById(R.id.ct_iv);
             nameTextView = v.findViewById(R.id.tv_item_name);
-            ctgTextView = v.findViewById(R.id.tv_item_category);
+//            ctgTextView = v.findViewById(R.id.tv_item_category);
+            lvImageView = v.findViewById(R.id.level_iv);
             v.setOnClickListener(this);
         }
 
@@ -58,8 +63,45 @@ public class RcpAdapter extends RecyclerView.Adapter<RcpAdapter.RcpViewHolder> {
     public void onBindViewHolder(RcpViewHolder holder, int position) {
         // - get element from your dataset at this position
         // - replace the contents of the view with that element
+        switch (mDataset.get(position).category) {
+            case "Japanese Dish":
+                holder.ctImageView.setImageResource(R.drawable.japanesedish);
+                break;
+            case "French Dish":
+                holder.ctImageView.setImageResource(R.drawable.frenchdish);
+                break;
+            case "Korean Dish":
+                holder.ctImageView.setImageResource(R.drawable.koreandish);
+                break;
+            case "Indonesian Dish":
+                holder.ctImageView.setImageResource(R.drawable.indonesiandish);
+                break;
+            case "Chinese Dish":
+                holder.ctImageView.setImageResource(R.drawable.chinesedish);
+                break;
+        }
+
         holder.nameTextView.setText(mDataset.get(position).name);
-        holder.ctgTextView.setText(mDataset.get(position).category);
+
+        switch (mDataset.get(position).level) {
+            case 1:
+                holder.lvImageView.setImageResource(R.drawable.level);
+                break;
+            case 2:
+                holder.lvImageView.setImageResource(R.drawable.level2);
+                break;
+            case 3:
+                holder.lvImageView.setImageResource(R.drawable.level3);
+                break;
+            case 4:
+                holder.lvImageView.setImageResource(R.drawable.level4);
+                break;
+            case 5:
+                holder.lvImageView.setImageResource(R.drawable.level5);
+                break;
+        }
+
+//        holder.ctgTextView.setText(mDataset.get(position).category);
     }
 
     public int getItemCount() {

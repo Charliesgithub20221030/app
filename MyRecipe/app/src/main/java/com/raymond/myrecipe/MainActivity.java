@@ -6,9 +6,14 @@ import android.os.Bundle;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.widget.Toast;
 
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
 
 public class MainActivity extends AppCompatActivity implements RcpAdapter.ListItemClickListener {
 
@@ -67,7 +72,7 @@ public class MainActivity extends AppCompatActivity implements RcpAdapter.ListIt
         mToast.show();
 
         Intent intent = new Intent();
-        intent.setClass(MainActivity.this, DetailActivity);
+        intent.setClass(MainActivity.this, DetailActivity.class);
 
         Bundle bundle = new Bundle();
         Recipe temp = rcpList.get(clickedItemIndex);
@@ -80,5 +85,56 @@ public class MainActivity extends AppCompatActivity implements RcpAdapter.ListIt
         bundle.putString("Method", temp.method);
         intent.putExtras(bundle);
         startActivity(intent);
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.main, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int itemId = item.getItemId();
+        MyComparator c = new MyComparator();
+
+        switch (itemId) {
+
+            case R.id.action_refresh:
+                mAdapter = new RcpAdapter(rcpList, this);
+                mRcpList.setAdapter(mAdapter);
+                return true;
+
+            case R.id.action_add:
+                mAdapter = new RcpAdapter(rcpList, this);
+                mRcpList.setAdapter(mAdapter);
+                return true;
+
+            case R.id.action_set:
+                mAdapter = new RcpAdapter(rcpList, this);
+                mRcpList.setAdapter(mAdapter);
+                return true;
+
+            case R.id.sort_name:
+                Collections.sort(rcpList, c.tCompare);
+                mAdapter = new RcpAdapter(rcpList, this);
+                mRcpList.setAdapter(mAdapter);
+                return true;
+
+            case R.id.sort_category:
+                Collections.sort(rcpList, c.cCompare);
+                mAdapter = new RcpAdapter(rcpList, this);
+                mRcpList.setAdapter(mAdapter);
+                return true;
+
+            case R.id.sort_level:
+                Collections.sort(rcpList, c.lCompare);
+                mAdapter = new RcpAdapter(rcpList, this);
+                mRcpList.setAdapter(mAdapter);
+                return true;
+
+        }
+
+        return super.onOptionsItemSelected(item);
     }
 }
