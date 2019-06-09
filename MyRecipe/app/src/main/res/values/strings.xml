@@ -8,4 +8,18 @@
     <string name="sort_category">Sort by Country</string>
     <string name="sort_level">Sort by Level</string>
     <string name="title">My Recipe</string>
+    <string-array name="level_arr">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+    </string-array>
+    <string-array name="ctg_arr">
+        <item>Japanese Dish</item>
+        <item>French Dish</item>
+        <item>Korean Dish</item>
+        <item>Indonesian Dish</item>
+        <item>Chinese Dish</item>
+    </string-array>
 </resources>

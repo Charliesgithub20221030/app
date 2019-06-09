@@ -38,7 +38,7 @@ public class RcpDBHper extends SQLiteOpenHelper {
         onCreate(db);
     }
 
-    public long insertRcp(String name, String category, int level, String intro, String ingredient, String fact, String method) {
+    public long insertRcp(String name, String category, int level, String intro, String ingredient, String method, String fact) {
         SQLiteDatabase db = getWritableDatabase();
         ContentValues rcp = new ContentValues();
         rcp.put("_name", name);

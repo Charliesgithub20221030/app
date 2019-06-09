@@ -2,12 +2,12 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="80dp">
+    android:layout_height="70dp">
     
     <ImageView
         android:id="@+id/ct_iv"
         android:layout_width="80dp"
-        android:layout_height="80dp"
+        android:layout_height="70dp"
         android:scaleType="fitCenter"
         android:padding="7dp"/>
 
@@ -23,7 +23,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical|start"
             android:fontFamily="monospace"
-            android:textSize="23sp"
+            android:textSize="20sp"
             android:padding="5dp"/>
 
         <!--<TextView-->

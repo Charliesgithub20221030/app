@@ -26,7 +26,7 @@ public class MainActivity extends AppCompatActivity implements RcpAdapter.ListIt
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        this.deleteDatabase(DBname);
+//        this.deleteDatabase(DBname);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
@@ -45,7 +45,7 @@ public class MainActivity extends AppCompatActivity implements RcpAdapter.ListIt
         if(dbHper == null){
             dbHper = new RcpDBHper(this, DBname, null, DBversion);
         }
-        dbHper.buildData();
+//        dbHper.buildData();
         rcpList = dbHper.getRcpSet();
     }
 
@@ -55,6 +55,8 @@ public class MainActivity extends AppCompatActivity implements RcpAdapter.ListIt
             dbHper = new RcpDBHper(this, DBname, null, DBversion);
         }
         rcpList = dbHper.getRcpSet();
+        mAdapter = new RcpAdapter(rcpList, this);
+        mRcpList.setAdapter(mAdapter);
     }
 
     public void onPause(){
@@ -103,16 +105,20 @@ public class MainActivity extends AppCompatActivity implements RcpAdapter.ListIt
             case R.id.action_refresh:
                 mAdapter = new RcpAdapter(rcpList, this);
                 mRcpList.setAdapter(mAdapter);
+                Toast.makeText(MainActivity.this, "refresh", Toast.LENGTH_SHORT).show();
                 return true;
 
             case R.id.action_add:
-                mAdapter = new RcpAdapter(rcpList, this);
-                mRcpList.setAdapter(mAdapter);
+                Intent intent = new Intent();
+                intent.setClass(MainActivity.this, AddActivity.class);
+                startActivity(intent);
+                Toast.makeText(MainActivity.this, "add", Toast.LENGTH_SHORT).show();
                 return true;
 
             case R.id.action_set:
                 mAdapter = new RcpAdapter(rcpList, this);
                 mRcpList.setAdapter(mAdapter);
+                Toast.makeText(MainActivity.this, "set", Toast.LENGTH_SHORT).show();
                 return true;
 
             case R.id.sort_name:

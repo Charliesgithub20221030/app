@@ -84,6 +84,9 @@ public class DetailActivity extends AppCompatActivity {
             case "Chinese Tea Leaf Eggs":
                 foodImageView.setImageResource(R.drawable.chinesetealeafeggs);
                 break;
+            default:
+                foodImageView.setImageResource(R.drawable.every);
+                break;
         }
     }
 }
