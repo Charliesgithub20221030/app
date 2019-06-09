@@ -233,8 +233,8 @@ public class MainActivity extends AppCompatActivity implements RcpAdapter.ListIt
             am = (AlarmManager) getSystemService(ALARM_SERVICE);
 
 //            am.cancel(pi);
-//            am.setRepeating(AlarmManager.RTC_WAKEUP, cal.getTimeInMillis(), 1000 * 60 * 60 * 60 * 24, pi);
-            am.setRepeating(AlarmManager.RTC_WAKEUP, cal.getTimeInMillis(), 1000 * 60 * 3, pi);
+            am.setRepeating(AlarmManager.RTC_WAKEUP, cal.getTimeInMillis(), 1000 * 60 * 60 * 60 * 24, pi);
+//            am.setRepeating(AlarmManager.RTC_WAKEUP, cal.getTimeInMillis(), 1000 * 60 * 3, pi);
         } else {
             // If the alarm has been set, cancel it.
             if (am != null) {

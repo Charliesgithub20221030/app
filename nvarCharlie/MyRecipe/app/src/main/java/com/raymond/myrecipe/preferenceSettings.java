@@ -49,6 +49,7 @@ public class preferenceSettings extends AppCompatActivity {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 SharedPreferences pref = getSharedPreferences("Notification", MODE_PRIVATE);
+                hour=itemToNum(spinner.getSelectedItem());
                 if ((buttonView.getId() == R.id.swnt) && buttonView.isChecked()) {
                     Toast.makeText(preferenceSettings.this, "開啟定時通知", Toast.LENGTH_SHORT).show();
                     pref.edit().clear().putBoolean("note", true)
@@ -79,7 +80,7 @@ public class preferenceSettings extends AppCompatActivity {
             sw_note.setChecked(true);
         else
             sw_note.setChecked(false);
-
+        spinner.setSelection(hour);
     }
 
     void buildSpinner() {
@@ -94,7 +95,7 @@ public class preferenceSettings extends AppCompatActivity {
                         Toast.makeText(preferenceSettings.this, "重行設定時間"+String.valueOf(hour), Toast.LENGTH_SHORT).show();
                         SharedPreferences pref = getSharedPreferences("Notification", MODE_PRIVATE);
                         pref.edit().clear().putBoolean("note", true)
-                                .putInt("hour", hour)
+                                .putInt("hour", itemToNum(spinner.getSelectedItem()))
                                 .apply();
                     }
                 }
@@ -110,6 +111,62 @@ public class preferenceSettings extends AppCompatActivity {
                 }
             });
         }
+
+    }
+
+
+    int itemToNum(Object item) {
+        String s = item.toString();
+        int n = 0;
+        if (s.equals("凌晨"))
+            n = 0;
+        else if (s.equals("上午1點"))
+            n = 1;
+        else if (s.equals("上午2點"))
+            n = 2;
+        else if (s.equals("上午3點"))
+            n = 3;
+        else if (s.equals("上午4點"))
+            n = 4;
+        else if (s.equals("上午5點"))
+            n = 5;
+        else if (s.equals("上午6點"))
+            n = 6;
+        else if (s.equals("上午7點"))
+            n = 7;
+        else if (s.equals("上午8點"))
+            n = 8;
+        else if (s.equals("上午9點"))
+            n = 9;
+        else if (s.equals("上午10點"))
+            n = 10;
+        else if (s.equals("上午11點"))
+            n = 11;
+        else if (s.equals("中午12點"))
+            n = 12;
+        else if (s.equals("下午13點"))
+            n = 13;
+        else if (s.equals("下午14點"))
+            n = 14;
+        else if (s.equals("下午15點"))
+            n = 15;
+        else if (s.equals("下午16點"))
+            n = 16;
+        else if (s.equals("下午17點"))
+            n = 17;
+        else if (s.equals("下午18點"))
+            n = 18;
+        else if (s.equals("下午19點"))
+            n = 19;
+        else if (s.equals("下午20點"))
+            n = 20;
+        else if (s.equals("下午21點"))
+            n = 21;
+        else if (s.equals("下午22點"))
+            n = 22;
+        else if (s.equals("下午23點"))
+            n = 23;
+        return n;
 
     }
 }
